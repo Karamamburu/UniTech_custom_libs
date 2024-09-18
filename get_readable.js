@@ -22,19 +22,36 @@ function getReadableFullDate(date) {
 }
 
 function getReadableShortName(fullname) {
+    _lowerCaseFullname = StrLowerCase(fullname)
+    _fullnameArray = _lowerCaseFullname.split(" ")
+    _newFullnameArray = []
 
-    _fullnameArray = fullname.split(" ")
-    _name = _fullnameArray[1]
-    _lastName = _fullnameArray[0]
+    for (string in _fullnameArray) {
+        _firstLetter = string.slice(0, 1)
+        _capitalizedFirstLetter = StrUpperCase(_firstLetter)
+        _newString = _capitalizedFirstLetter + string.slice(1)
+        _newFullnameArray.push(_newString)
+    }
+
+    _name = _newFullnameArray[1]
+    _lastName = _newFullnameArray[0]
     _readableShortName = _name + " " + _lastName 
 
-    return _readableShortName
+return _readableShortName
 }
 
 function getOnlyName(fullname) {
+	_newFullnameArray = []
+	_fullnameArray = fullname.split(" ")
 
-    _fullnameArray = fullname.split(" ")
-    _name = _fullnameArray[1]
+	for (string in _fullnameArray) {
+		_firstLetter = string.slice(0, 1)
+		_capitalizedFirstLetter = StrUpperCase(_firstLetter)
+		_newString = _capitalizedFirstLetter + string.slice(1)
+		_newFullnameArray.push(_newString)
+	}
+
+	_name = _newFullnameArray[1]
 
     return _name
 }
